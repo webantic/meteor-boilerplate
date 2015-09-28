@@ -1,0 +1,91 @@
+@import 'variables.import.less';
+
+/* -------------------
+    Helper styles
+   ------------------- */
+
+.hidden:not(.divider) {
+    display: none;
+}
+
+.padding-wrapper {
+    padding: 20px;
+}
+
+.relative {
+  position: relative;
+}
+
+.aligned {
+    &.center {
+        text-align: center;
+    }
+
+    &.left {
+        text-align: left;
+    }
+
+    &.right {
+        text-align: right;
+    }
+}
+
+.link {
+    &.unstyled {
+        color: inherit;
+    }
+
+    &.no-underline {
+        text-decoration: none;
+    }
+
+    &.no-hover-styles:hover {
+        color: inherit;
+    }
+}
+
+.floated {
+  &.right {
+    float: right;
+  }
+  &.left {
+    float: left;
+  }
+}
+
+.no {
+  &.margin-top {
+    margin-top: 0;
+  }
+  &.margin-left {
+    margin-left: 0;
+  }
+  &.margin-bottom {
+    margin-bottom: 0;
+  }
+  &.margin-right {
+    margin-right: 0;
+  }
+  &.margin {
+    margin: 0;
+  }
+  &.padding-top {
+    padding-top: 0;
+  }
+  &.padding-left {
+    padding-left: 0;
+  }
+  &.padding-bottom {
+    padding-bottom: 0;
+  }
+  &.padding-right {
+    padding-right: 0;
+  }
+  &.padding {
+    padding: 0;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}

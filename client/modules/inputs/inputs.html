@@ -1,0 +1,73 @@
+<template name="input_text">
+
+  <fieldset class="field">
+
+    <label for="{{collection_field}}">{{label}}</label>
+    <input type="text" name="{{collection}}_{{field}}" placeholder="{{placeholder}}" value="{{value}}">
+
+  </fieldset>
+
+</template>
+
+
+<template name="textarea">
+
+  <fieldset class="field">
+
+    <label for="{{collection_field}}">{{label}}</label>
+    <textarea name="{{collection}}_{{field}}" placeholder="{{placeholder}}">{{value}}</textarea>
+
+  </fieldset>
+
+</template>
+
+<template name="dropdown">
+
+  <fieldset class="field">
+
+    <label for="{{collection_field}}">{{label}}</label>
+    <select class="ui dropdown" name="{{collection}}_{{field}}">
+      <option value="">{{placeholder}}</option>
+      {{#each options}}
+      <option value="{{value}}" selected="{{$eq value ../value}}">{{humanize title}}</option>
+      {{/each}}
+    </select>
+
+  </fieldset>
+
+</template>
+
+<template name="tags">
+
+  <fieldset class="field">
+
+    <label for="{{collection_field}}">{{label}}</label>
+    <select multiple="" class="ui multiple search selection dropdown" name="{{collection}}_{{field}}">in
+      <option value="">{{placeholder}}</option>
+      {{#if options}}
+        {{#each options}}
+        <option value="{{value}}" selected="{{inArray value ../value}}">{{humanize title}}</option>
+        {{/each}}
+      {{else}}
+        {{#each value}}
+          <option value="{{this}}" selected="{{inArray this ../value}}">{{humanize this}}</option>
+        {{/each}}
+      {{/if}}
+    </select>
+
+  </fieldset>
+
+</template>
+
+<template name="checkbox">
+
+  <fieldset class="field">
+
+    <div class="ui toggle checkbox">
+      <input type="checkbox" name="{{collection}}_{{field}}" checked="{{value}}">
+      <label for="{{collection_field}}">{{label}}</label>
+    </div>
+
+  </fieldset>
+
+</template>
