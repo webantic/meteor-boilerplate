@@ -1,4 +1,13 @@
 // { "path" : "client/views/__viewName__/__viewName__.js" }
+Template.__viewName__.onCreated(function(){
+  var self = this;
+
+  self.autorun(function(){
+
+  });
+  
+});
+
 Template.__viewName__.helpers({
 });
 

@@ -9,12 +9,14 @@ accounts-password
 aldeed:collection2
 raix:handlebar-helpers
 matteodem:easy-security
+audit-argument-checks
 fastclick
 browser-policy
 dburles:collection-helpers
 meteorhacks:fast-render
 
 spiderable
+semantic:ui
 flemay:less-autoprefixer
 momentjs:moment
 http
