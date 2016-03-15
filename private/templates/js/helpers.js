@@ -1,0 +1,3 @@
+__modelVarName__.helpers({
+
+});
