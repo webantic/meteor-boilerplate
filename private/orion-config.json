@@ -31,6 +31,7 @@
         "files" : [
           "private/templates/js/definition.js",
           "private/templates/js/hooks.js",
+          "private/templates/js/helpers.js",
           "private/templates/js/security.js",
           "private/templates/js/publication.js"
         ],
