@@ -1,0 +1,25 @@
+@import '../../../stylesheets/variables.less';
+
+.header-scope {
+	display: flex;
+	flex-flow: row;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: space-between;
+
+	padding: @spacing-default;
+	border-bottom: 1px solid fade(darken(@color-grey, 25%), 25%);
+	box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.25);
+
+	margin-bottom: @spacing-default;
+	background-color: @color-white;
+
+	.logo {
+		height: @spacing-default *2;
+		overflow: hidden;
+
+		img {
+			height: 100%;
+		}
+	}
+}

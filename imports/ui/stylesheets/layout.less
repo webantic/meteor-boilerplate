@@ -1,0 +1,12 @@
+@import './variables.less';
+
+// adds gutter on large viewports
+.text-container {
+	padding-left: @spacing-default;
+	padding-right: @spacing-default;
+
+	@media (min-width: 768px) {
+		padding-left: @spacing-default * 4;
+		padding-right: @spacing-default * 4;
+	}
+}

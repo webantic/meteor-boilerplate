@@ -1,0 +1,86 @@
+{
+  "generate" : {
+		"api" : {
+			"default" : {
+				"desc" : "A unit of domain logic",
+				"variables" : [
+					{
+						"name" : "apiName",
+						"desc" : "What's the name of the unit? e.g. posts"
+					},
+					{
+						"name": "modelVarName",
+						"desc": "What's the model's variable name? e.g. Posts"
+					}
+				],
+				"files" : [
+					"private/templates/api/definition.js",
+					"private/templates/api/definition.tests.js",
+					"private/templates/api/helpers.js",
+					"private/templates/api/helpers.tests.js",
+					"private/templates/api/hooks.js",
+					"private/templates/api/hooks.tests.js",
+					"private/templates/api/methods.js",
+					"private/templates/api/methods.tests.js",
+					"private/templates/api/publications.js",
+					"private/templates/api/publications.tests.js",
+					"private/templates/api/security.js",
+					"private/templates/api/security.tests.js"
+				]
+			}
+		},
+    "component" : {
+      "default" : {
+        "desc" : "Self working components such as a searchbar or a form. REMEMBER TO RUN `update_stylesheet_imports.sh`",
+        "variables" : [
+          {
+            "name" : "componentName",
+            "desc" : "What's the name of your module?"
+          }
+        ],
+        "files" : [
+					"private/templates/component/markup.html",
+					"private/templates/component/main.js",
+					"private/templates/component/style.less",
+					"private/templates/component/client/tests.js",
+					"private/templates/component/helpers.js",
+          "private/templates/component/events.js"
+        ]
+      }
+    },
+    "layout" : {
+      "default" : {
+        "desc" : "Layout template which yields your content. REMEMBER TO RUN `update_stylesheet_imports.sh`",
+        "variables" : [
+          {
+            "name" : "layoutName",
+            "desc" : "What's the name of your layout?"
+          }
+        ],
+        "files" : [
+					"private/templates/layout/markup.html",
+					"private/templates/layout/main.js",
+					"private/templates/layout/style.less"
+        ]
+      }
+    },
+    "view" : {
+      "default" : {
+        "desc" : "Views, used with routes for displaying content. REMEMBER TO RUN `update_stylesheet_imports.sh`",
+        "variables" : [
+          {
+            "name" : "viewName",
+            "desc" : "What's the name of your view?"
+          }
+        ],
+        "files" : [
+          "private/templates/view/markup.html",
+					"private/templates/view/main.js",
+					"private/templates/view/client/tests.js",
+					"private/templates/view/helpers.js",
+          "private/templates/view/events.js"
+        ]
+      }
+    }
+  }
+}

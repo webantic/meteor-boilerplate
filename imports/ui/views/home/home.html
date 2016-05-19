@@ -1,0 +1,103 @@
+<template name="home">
+	<div class="home-scope">
+
+		<div class="text-container">
+			<h1>Webantic Meteor Boilerplate</h1>
+
+			<h2 class="subtitle huge padding-top">Getting Started</h2>
+
+			<section class="section">
+				{{> anchorSubtitle text='Replace default content'}}
+				There is default content in the following locations that needs customising for your app:
+				<pre>/imports/startup/constants.js
+/client/head.html
+/public/favicon.png
+/public/logo/png
+package.json</pre>
+			</section>
+
+			<section class="section">
+				{{> anchorSubtitle text='Add settings.json'}}
+				Create a file in the project root called <pre class="inline">settings.json</pre> and paste in the following snippet:
+				<pre>{
+	"orion-cli": {
+		"profile": "default",
+		"config": "private/orion-config.json"
+	}
+}</pre>
+				This enables <a href="#using_orion">Orion</a>.
+			</section>
+
+			<section class="section">
+				{{> anchorSubtitle text='Add git hook'}}
+				To have git auto-update your patch revision number when you commit, create <pre class="inline">.git/hooks/pre-commit</pre> and paste in the following snippet:
+				<pre>#!/bin/bash
+private/update_version.sh
+git add VERSION
+git add imports/startup/constants.js</pre>
+				This updates <pre class="inline">VERSION</pre> and <pre class="inline">imports/startup/constants.js</pre>. If you want to commit without updating the patch revision, use <pre class="inline">git commit --no-verify</pre>.
+			</section>
+
+			<h2 class="subtitle huge padding-top">Reference</h2>
+
+			<section class="section">
+				{{> anchorSubtitle text='Describing file exports'}}
+				Use the following command to get a quick list of all the exports for any given file: <pre class="inline">grep -rnw /path/to/file -e 'export'</pre>
+			</section>
+
+			<section class="section">
+				{{> anchorSubtitle text='Using Orion'}}
+				The recommended way to scaffold your project is with Orion.
+				<ul>
+					<li>Create a unit of server logic: <pre class="inline">orion generate api</pre></li>
+					<li>Create a layout: <pre class="inline">orion generate layout</pre></li>
+					<li>Create a page: <pre class="inline">orion generate view</pre></li>
+					<li>Create a component: <pre class="inline">orion generate component</pre></li>
+				</ul>
+				After generating new modules, you should run <pre class="inline">./updateDeps</pre> to re-generate various imports.
+			</section>
+
+			<section class="section">
+				{{> anchorSubtitle text='Folder structure'}}
+				<pre>/
+updateDeps&#09;&#09;&#09;&#09;# Script to re-generate imports
+VERSION&#09;&#09;&#09;&#09;&#09;# Current version number
+
+client/&#09;&#09;&#09;&#09;&#09;# Eagerly loaded client files
+  head.html&#09;&#09;&#09;&#09;# The HTML &lt;head&gt;
+  main.js&#09;&#09;&#09;&#09;# The main entry point for client imports. Delegates to /imports/client
+  main.less&#09;&#09;&#09;&#09;# Auto-generated imports of all less files in the project
+
+imports/&#09;&#09;&#09;&#09;# All app logic. Not eagerly loaded
+  api/&#09;&#09;&#09;&#09;&#09;# All model logic. Pubs from server; model definitions, hooks, schemas, security
+    users/&#09;&#09;&#09;&#09;# User collection
+  startup/&#09;&#09;&#09;&#09;# Runtime config
+    constants.js&#09;&#09;&#09;# Global constants
+    client/&#09;&#09;&#09;&#09;# Modular logic for client
+      index.js&#09;&#09;&#09;&#09;# Entry point for client startup logic.
+      routes.js&#09;&#09;&#09;&#09;# Client route definitions
+      spacebarHelpers.js&#09;&#09;# Global spacebar helpers
+      templates.js&#09;&#09;&#09;# Auto-generated imports for all template definitions
+      utility.js&#09;&#09;&#09;# Global helper functions
+    server/&#09;&#09;&#09;&#09;# Modular logic for server
+      index.js&#09;&#09;&#09;&#09;# Entry point for server startup logic.
+      register-api.js&#09;&#09;&#09;# Auto-generated imports for all api definitions
+      security.js&#09;&#09;&#09;# Server security policies
+  ui/&#09;&#09;&#09;&#09;&#09;# All template definitions and logic
+    components/&#09;&#09;&#09;&#09;# All reusable ui components
+    layouts/&#09;&#09;&#09;&#09;# All ui layouts
+    stylesheets/&#09;&#09;&#09;# Stylesheets
+    views/&#09;&#09;&#09;&#09;# All ui pages
+
+server/&#09;&#09;&#09;&#09;&#09;# Eagerly loaded server files
+  main.js&#09;&#09;&#09;&#09;# The main entry point for server imports. Delegates to /imports/server
+</pre>
+			</section>
+		</div>
+
+	</div>
+</template>
+
+<template name="anchorSubtitle">
+	<h3 class="subtitle" id="{{underscore text}}"><a href="#{{underscore text}}">{{text}}</a></h3>
+</template>

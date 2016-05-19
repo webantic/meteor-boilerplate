@@ -1,0 +1,7 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+"$DIR/private/update_api_imports.sh"
+"$DIR/private/update_stylesheet_imports.sh"
+"$DIR/private/update_template_imports.sh"

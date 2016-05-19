@@ -1,0 +1,6 @@
+node_modules
+jspm_packages
+settings.json
+.meteor/local
+*.log
+npm-debug.log*
