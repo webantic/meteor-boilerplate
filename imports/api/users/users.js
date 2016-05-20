@@ -20,6 +20,11 @@ var usersSchema = new SimpleSchema({
 		optional: true,
 		blackbox: true
 	},
+	status: {
+		type: Object,
+		optional: true,
+		blackbox: true
+	},
 	profile: {
 		type: Object,
 		optional: true,
