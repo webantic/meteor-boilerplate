@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
-import { capitalize, humanize, underscore } from './utility.js';
+import { capitalize, humanize, underscore } from '../utility.js';
 
 
 Template.registerHelper('debug', function (optionalValue) {
