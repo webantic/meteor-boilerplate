@@ -15,6 +15,7 @@ tracker
 jquery
 underscore
 less
+momentjs:moment
 
 # ui
 blaze-html-templates
@@ -31,6 +32,8 @@ dburles:collection-helpers
 reywood:publish-composite
 mdg:validated-method
 mdg:validation-error
+session
+u2622:persistent-session
 
 # routing
 kadira:flow-router@2.11.0
@@ -39,13 +42,16 @@ arillo:flow-router-helpers
 zimme:active-route
 
 # accounts
+accounts-base
 accounts-password
+mizzao:user-status
 
 # production
 standard-minifier-css
 standard-minifier-js
 ddp-rate-limiter
 app-prod-security
+# browser-policy # DISABLED!
 
 # rest apis
 simple:rest-accounts-password
