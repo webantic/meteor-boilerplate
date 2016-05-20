@@ -7,9 +7,9 @@ Meteor.publish('users', function () {
 		cursor = Meteor.users.find();
 
 	cursorHandle = cursor.observeChanges({
-		added		: (id, fields) 	=> self.added('users', id, fields),
-		changed	: (id, fields) 	=> self.changed('users', id, fields),
-		removed	: (id) 					=> self.removed('users', id)
+		added(id, fields) 	{ self.added('users', id, fields); },
+		changed(id, fields) { self.changed('users', id, fields); },
+		removed(id) 				{ self.removed('users', id); },
 	});
 
 	self.ready();

@@ -1,15 +1,14 @@
 import { Meteor } from 'meteor/meteor';
-import { EJSON } from 'meteor/ejson';
 import { check } from 'meteor/check';
 
 Meteor.methods({
-	// addMeteor.users: ( newMeteor.users ) => {
-	// 	check(newMeteor.users, Object);
-	// 	Meteor.users.insert(newMeteor.users);
+	// 'users/add'( newUser ) {
+	// 	check(newUser, Object);
+	// 	return Meteor.users.insert(newUser);
 	// },
-	// removeMeteor.users: ( _id ) => {
+	// 'users/remove'( _id ) {
 	// 	check(_id, String);
-	// 	Meteor.users.remove({_id});
+	// 	return Meteor.users.remove({_id});
 	// },
 
 });

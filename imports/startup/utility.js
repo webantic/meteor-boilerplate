@@ -1,6 +1,6 @@
-export const noop = function () {};
+export const noop = () => {};
 
-export const humanize = function (string) {
+export const humanize = (string) => {
   string = string || '';
   string = string.toString(); // might be a number
   string = string.trim();
@@ -11,7 +11,7 @@ export const humanize = function (string) {
   return capitalize(string);
 };
 
-export const capitalize = function (string) {
+export const capitalize = (string) => {
   string = string || '';
   string = string.trim();
 
@@ -22,7 +22,7 @@ export const capitalize = function (string) {
   return string;
 };
 
-export const underscore = function (string) {
+export const underscore = (string) => {
   string = string || '';
   string = string.toString(); // might be a number
   string = string.trim();
@@ -32,14 +32,14 @@ export const underscore = function (string) {
   return string;
 }
 
-export const extname = function (string) {
+export const extname = (string) => {
   var index = string.lastIndexOf('.');
   var ext = string.substring(index, string.length);
 
   return (index === -1) ? '' : ext;
 }
 
-export const truncate = function ( str, len ) {
+export const truncate = ( str, len ) => {
 	if ( !str ) {
 		return undefined;
 	}

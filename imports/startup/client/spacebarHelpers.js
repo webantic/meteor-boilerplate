@@ -4,7 +4,7 @@ import { capitalize, humanize, underscore } from '../utility.js';
 
 
 Template.registerHelper('debug', function (optionalValue) {
-  if (typeof console !== "undefined" || typeof console.log !== "undefined") {
+  if (typeof console !== "undefined" && typeof console.log !== "undefined") {
     console.log("Current Context");
     console.log("====================");
     console.log(this);

@@ -1,18 +1,18 @@
 import '../utility.js'	// grab global utility functions too
 
-export const addThousandsSeparators = function ( x ) {
+export const addThousandsSeparators = (x) => {
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
 
-export const imageToDataURI = function (file, callback){
+export const imageToDataURI = ( file, callback ) => {
   var reader = new FileReader();
-  reader.onload = function (e) {
+  reader.onload = (e) => {
     callback(e.target.result);
   }
   reader.readAsDataURL(file);
 };
 
-export const dataURItoBlob = function (dataURI) {
+export const dataURItoBlob = ( dataURI ) => {
   // Convert base64/URLEncoded data component to raw binary data held in a string
   var byteString;
   if (dataURI.split(',')[0].indexOf('base64') >= 0) {
@@ -36,9 +36,9 @@ export const dataURItoBlob = function (dataURI) {
 export const updateBoolean = function (e) {
 
   var checked = e.target.checked,
-      update = {
-        lastUpdated: new Date()
-      };
+    update = {
+      lastUpdated: new Date()
+    };
   update[this.field] = checked;
 
   if (!window[this.collection]) return;
@@ -52,9 +52,9 @@ export const updateBoolean = function (e) {
 export const updateFromValue = function (e) {
 
   var val = e.target.value,
-      update = {
-        lastUpdated: new Date()
-      };
+    update = {
+      lastUpdated: new Date()
+    };
   update[this.field] = val;
 
   if (!window[this.collection]) return;
@@ -68,15 +68,13 @@ export const updateFromValue = function (e) {
 export const updateFromValueArray = function (e) {
 
   if (!Array.isArray) {
-    Array.isArray = function(arg) {
-      return Object.prototype.toString.call(arg) === '[object Array]';
-    };
+    Array.isArray = arg => Object.prototype.toString.call(arg) === '[object Array]';
   }
 
   var val = $(e.target).val(),
-      update = {
-        lastUpdated: new Date()
-      };
+    update = {
+      lastUpdated: new Date()
+    };
 
   if ( !Array.isArray(val) ) val = [val];
 

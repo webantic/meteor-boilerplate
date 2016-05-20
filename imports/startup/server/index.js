@@ -1,6 +1,6 @@
 import './debug.js';					// sets up debug environment
 
-import '../constants.js'			// global app constants
+import '../constants.js';			// global app constants
 
 import '../utility.js'; 			// utility functions
 

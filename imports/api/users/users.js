@@ -5,7 +5,7 @@ var usersSchema = new SimpleSchema({
 		type: Date,
 		label: 'Created Date',
 		denyUpdate: true,
-		autoValue: function () {
+		autoValue() {
 			if (this.isInsert) {
 				return new Date();
 			} else if (this.isUpsert) {
@@ -31,7 +31,7 @@ var usersSchema = new SimpleSchema({
 		blackbox: true
 	},
 	emails: {
-		type: Object,
+		type: [Object],
 		optional: true,
 		blackbox: true
 	},

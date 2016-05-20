@@ -35,7 +35,7 @@ DDPRateLimiter.addRule({
 }, 2, 5000);
 
 // HSTS
-WebApp.connectHandlers.use(function(req, res, next) {
+WebApp.connectHandlers.use( (req, res, next) => {
 	res.setHeader('Strict-Transport-Security', 'max-age=2592000; includeSubDomains'); // 2592000s / 30 days
 	return next();
 });
