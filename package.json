@@ -1,10 +1,23 @@
 {
   "name": "webantic-meteor-boilerplate",
+  "homepage": "https://github.com/webantic/meteor-boilerplate",
+  "author": "Carl Evans",
+  "version": "0.1.0",
+  "license": "ISC",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webantic/meteor-boilerplate.git"
+  },
   "scripts": {
-    "start": "meteor run"
+    "start": "meteor run",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "cordova-ios-requires-fullscreen": "0.0.2",
+    "cordova-plugin-fullscreen": "^1.1.0",
+    "fibers": "^1.0.10",
+    "jquery": "^2.2.3",
     "meteor-node-stubs": "~0.2.0"
   }
 }

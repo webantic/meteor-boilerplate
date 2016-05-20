@@ -1,7 +1,15 @@
-import '../constants.js' 				// global app constants
+import '../debug.js';								// adjusts environment for debug mode
 
-import './utility.js'; 					// utility functions
+import './reloadConfig.js';					// reloader config for code updates
 
-import './spacebarHelpers.js'; 	// global spacebar helper functions
+import './cordova-deviceReady.js';	// cordova device ready callbacks
+import './cordova-pluginConfig.js';	// cordova plugin configuration
 
-import './routes.js'; 					// client routes
+import '../constants.js' 						// global app constants
+
+import './utility.js'; 							// utility functions
+import '../utility.js'; 						// utility functions
+
+import './spacebarHelpers.js'; 			// global spacebar helper functions
+
+import './routes.js'; 							// client routes

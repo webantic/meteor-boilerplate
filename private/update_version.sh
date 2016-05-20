@@ -25,3 +25,5 @@ done
 
 echo "$OUT" > "$DIR/VERSION"
 sed -i "s#$IN#$OUT#g" "$DIR/imports/startup/constants.js"
+sed -i "s#$IN#$OUT#g" "$DIR/mobile-config.js"
+sed -i 's#"version": "$IN"#"version": "$OUT"#g' "$DIR/package.json"

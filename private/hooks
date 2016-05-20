@@ -1,0 +1,83 @@
+# from the android build output directory -- there was this post-commit hook
+
+			#!/bin/bash
+
+			# push to Play store
+			cd /home/carl/Projects/kidscast/.deploy/
+			./publishToPlay.py com.carlevans719.kidscast /home/carl/Projects/kidscast/.build/android/android/kidscast_$(cat /home/carl/Projects/kidscast/version).apk
+
+			# bump version number up
+			cd /home/carl/Projects/kidscast/.deploy/
+			./update_version.sh
+
+
+
+
+# end
+
+
+# from root - this was the commit-msg hook
+
+			#!/bin/bash
+			FULLMESSAGE=`head -n 10 $1`
+			LASTCOMMIT=`git rev-parse HEAD`
+
+			if [[ "$FULLMESSAGE" == *#build-android* ]]; then
+			 echo "Found #build-android in commit message, will build and commit android app to build-android."
+
+			 # First, build Meteor
+			 cd /home/carl/Projects/kidscast
+			 rm -f /home/carl/Projects/kidscast/.build/android/android/kidscast_*.apk
+			 meteor build --server "http://kidscast.webfaction.com" .build/android/
+
+			 # Next, sign and zipalign .apk
+			 cd .build/android/android
+			 jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -storepass kc_Carl123! -keypass kc_Carl123! release-unsigned.apk kidscast
+			 /home/carl/Android/Sdk/build-tools/23.0.3/zipalign 4 release-unsigned.apk kidscast_$(cat /home/carl/Projects/kidscast/version).apk
+
+			 cd ../../../
+			 echo "$(cat $1) ($LASTCOMMIT)" > .build/android/commit-message
+
+			elif [[ "$FULLMESSAGE" == *build* ]]; then
+			 echo "Found #build in commit message, will build server only"
+
+			 # First, build meteor as server only
+			 cd /home/carl/Projects/kidscast
+			 meteor build --server "http://kidscast.webfaction.com" --server-only .build/server
+
+			 # Next, set commit message
+			 echo "$(cat $1) ($LASTCOMMIT)" > .build/server/commit-message
+
+			else
+			 echo "#build, #build-android not found in commit message, will not build."
+			fi
+
+
+# end
+
+#and from the root dir - this was post-commit
+
+			#!/bin/bash
+			if [[ -e /home/carl/Projects/kidscast/.build/android/commit-message ]]
+			then
+			  MESSAGE=$(cat /home/carl/Projects/kidscast/.build/android/commit-message)
+			  readarray -t MESSAGE < <(echo "$MESSAGE")
+			  MESSAGE="${MESSAGE[0]}"
+			  rm /home/carl/Projects/kidscast/.build/android/commit-message
+			  cd /home/carl/Projects/kidscast/.build/android
+			  git add -A .
+			  git commit -m "$MESSAGE"
+			  git push origin build-android
+			fi
+
+			if [[ -e /home/carl/Projects/kidscast/.build/server/commit-message ]]
+			then
+			  MESSAGE1=$(cat /home/carl/Projects/kidscast/.build/server/commit-message)
+			  readarray -t MESSAGE1 < <(echo "$MESSAGE1")
+			  MESSAGE1="${MESSAGE1[0]}"
+			  rm /home/carl/Projects/kidscast/.build/server/commit-message
+			  cd /home/carl/Projects/kidscast/.build/server
+			  git add -A .
+			  git commit -m "$MESSAGE1"
+			  git push origin build-server
+			fi

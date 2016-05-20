@@ -10,18 +10,25 @@ ecmascript
 es5-shim
 check
 tracker
+mobile-experience
+email
+appcache
 
 # standard libraries
 jquery
 underscore
 less
+momentjs:moment
 
 # ui
 blaze-html-templates
+raix:handlebar-helpers
 reactive-dict
 reactive-var
 aldeed:template-extension
 percolate:momentum
+fastclick
+jamielob:reloader
 
 # data
 mongo
@@ -31,23 +38,31 @@ dburles:collection-helpers
 reywood:publish-composite
 mdg:validated-method
 mdg:validation-error
+session
+u2622:persistent-session
+ground:db
 
 # routing
 kadira:flow-router@2.11.0
 kadira:blaze-layout
 arillo:flow-router-helpers
 zimme:active-route
+tomwasd:flow-router-seo
 
 # accounts
+accounts-base
 accounts-password
+mizzao:user-status
 
 # production
 standard-minifier-css
 standard-minifier-js
 ddp-rate-limiter
 app-prod-security
+matteodem:easy-security
 
 # rest apis
+http
 simple:rest-accounts-password
 simple:rest
 
@@ -58,3 +73,6 @@ xolvio:cleaner
 dispatch:mocha-phantomjs
 practicalmeteor:mocha@2.1.1-rc.1
 hwillson:stub-collections
+
+percolate:synced-cron
+browser-policy

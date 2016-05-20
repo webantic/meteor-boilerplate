@@ -1,0 +1,14 @@
+postcss vs autoprefixer vs less
+try use isProd instead of Meteor.settings.public.devMode
+use specific debug files for client/server
+use `require` instead of `import` and only do so if we're not in Prod (edited)
+create a branch for meteoric
+https://github.com/meteoric/meteor-ionic/blob/master/GUIDE.md (edited)
+http://ionicframework.com/docs/v2/components/#overview (edited)
+update private/templates
+use ground
+add default fs stuff
+add portrait splash screens
+look at passing in the dev email and track to the publishToPlay.py file from the git hooks
+think about creating a keystore
+create layout for mobile

@@ -1,5 +1,9 @@
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
+// example for offline db access
+// if (Meteor.isCordova) Ground.Collection(Meteor.users);
+// if (Meteor.isClient) Meteor.subscribe('userData');
+
 var usersSchema = new SimpleSchema({
 	createdAt: {
 		type: Date,
@@ -16,6 +20,11 @@ var usersSchema = new SimpleSchema({
 		}
 	},
 	services: {
+		type: Object,
+		optional: true,
+		blackbox: true
+	},
+	status: {
 		type: Object,
 		optional: true,
 		blackbox: true

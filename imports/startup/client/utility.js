@@ -1,43 +1,62 @@
-export const humanize = function(string){
-  string = string || '';
-  string = string.toString(); // might be a number
-  string = string.trim();
-  string = string.replace(extname(string), '');
-  string = underscore(string);
-  string = string.replace(/[\W_]+/g, ' ');
-
-  return capitalize(string);
+export const addThousandsSeparators = function ( x ) {
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
 
-export const capitalize = function(string){
-  string = string || '';
-  string = string.trim();
+export const imageToDataURI = function (file, callback){
+  var reader = new FileReader();
+  reader.onload = function (e) {
+    callback(e.target.result);
+  }
+  reader.readAsDataURL(file);
+};
 
-  if (string[0]) {
-    string = string[0].toUpperCase() + string.substr(1).toLowerCase();
+export const dataURItoBlob = function (dataURI) {
+  // Convert base64/URLEncoded data component to raw binary data held in a string
+  var byteString;
+  if (dataURI.split(',')[0].indexOf('base64') >= 0) {
+    byteString = atob(dataURI.split(',')[1]);
+  } else {
+    byteString = unescape(dataURI.split(',')[1]);
+	}
+
+  // Separate out the mime component
+  var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+  // Write the bytes of the string to a typed array
+  var ia = new Uint8Array(byteString.length);
+  for (var i = 0; i < byteString.length; i++) {
+    ia[i] = byteString.charCodeAt(i);
   }
 
-  return string;
+  return new Blob([ia], {type:mimeString});
 };
 
-export const underscore = function(string){
-  string = string || '';
-  string = string.toString(); // might be a number
-  string = string.trim();
-  string = string.replace(/([a-z\d])([A-Z]+)/g, '$1_$2');
-  string = string.replace(/[-\s]+/g, '_').toLowerCase();
+export const truncate = function ( str, len ) {
+	if ( !str ) {
+		return undefined;
+	}
+	if ( str.length > len ) {
+		var newStr = str.substr( 0, len + 1 );
 
-  return string;
-}
+		while ( newStr.length ) {
+			var ch = newStr.substr( -1 );
+			newStr = newStr.substr( 0, -1 );
 
-export const extname = function(string){
-  var index = string.lastIndexOf('.');
-  var ext = string.substring(index, string.length);
+			if ( ch === ' ' ) {
+				break;
+			}
+		}
 
-  return (index === -1) ? '' : ext;
-}
+		if ( newStr === '' ) {
+			newStr = str.substr( 0, len );
+		}
 
-export const updateBoolean = function(e){
+		return new Handlebars.SafeString( newStr + '...' );
+	}
+	return str;
+};
+
+export const updateBoolean = function (e) {
 
   var checked = e.target.checked,
       update = {
@@ -51,9 +70,9 @@ export const updateBoolean = function(e){
     {_id: this.id},
     {$set: update }
   );
-}
+};
 
-export const updateFromValue = function(e){
+export const updateFromValue = function (e) {
 
   var val = e.target.value,
       update = {
@@ -67,9 +86,9 @@ export const updateFromValue = function(e){
     {_id: this.id},
     {$set: update }
   );
-}
+};
 
-export const updateFromValueArray = function(e){
+export const updateFromValueArray = function (e) {
 
   if (!Array.isArray) {
     Array.isArray = function(arg) {
@@ -93,4 +112,4 @@ export const updateFromValueArray = function(e){
     {$set: update }
   );
 
-}
+};
