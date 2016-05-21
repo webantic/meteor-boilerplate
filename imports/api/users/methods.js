@@ -3,13 +3,18 @@ import { EJSON } from 'meteor/ejson';
 import { check } from 'meteor/check';
 
 Meteor.methods({
-	// addMeteor.users: ( newMeteor.users ) => {
-	// 	check(newMeteor.users, Object);
-	// 	Meteor.users.insert(newMeteor.users);
+	// 'users/create': ( user ) => {
+	// 	check(user, Object);
+	// 	return Meteor.users.insert(user);
 	// },
-	// removeMeteor.users: ( _id ) => {
+	// 'users/update': ( _id, $set ) => {
 	// 	check(_id, String);
-	// 	Meteor.users.remove({_id});
+	// 	check($set, Object);
+	// 	return Meteor.users.update({_id}, {$set});
 	// },
-
+	// 'users/delete': ( _id ) => {
+	// 	check(_id, String);
+	// 	return Meteor.users.remove({_id});
+	// },
+	
 });

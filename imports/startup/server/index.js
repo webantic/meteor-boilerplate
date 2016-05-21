@@ -1,9 +1,11 @@
-import '../debug.js';					// adjusts environment for debug mode
+import './debug.js';					// adjusts environment for debug mode
 
-import '../constants.js'			// global app constants
+import '../constants.js';			// global app constants
+
+import '../utility.js';				// utility functions
 
 import './security.js';				// rate-limiting and other critical server security
 
-import './register-api.js';		// add all server-provisioned data
+import './api-config.js';			// configure api
 
-import '../utility.js';				// utility functions
+import './register-api.js';		// add all server-provisioned data

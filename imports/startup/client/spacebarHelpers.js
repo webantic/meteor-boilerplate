@@ -29,26 +29,16 @@ Template.registerHelper('debug', function (optionalValue) {
 
 Template.registerHelper('capitalize', capitalize);
 
-Template.registerHelper('constant', function (what) {
-  return Meteor.App[what.toUpperCase()];
-});
+Template.registerHelper('constant', what => Meteor.App[what.toUpperCase()]);
 
-Template.registerHelper('inArray', function(value, array){
-  return value && array && array.indexOf(value) > -1;
-});
+Template.registerHelper('inArray', (value, array) => value && array && array.indexOf(value) > -1);
 
 Template.registerHelper('underscore', underscore);
 
-Template.registerHelper('isActive', function (compare, to) {
-  return compare === to ? "active" : "";
-});
+Template.registerHelper('isActive', (compare, to) => compare === to ? "active" : "");
 
 Template.registerHelper('humanize', humanize);
 
-Template.registerHelper('appName', function () {
-	return Meteor.App.NAME;
-});
+Template.registerHelper('appName', () => Meteor.App.NAME);
 
-Template.registerHelper('getLogoSrc', function () {
-	return Meteor.App.LOGO;
-});
+Template.registerHelper('getLogoSrc', () => Meteor.App.LOGO);

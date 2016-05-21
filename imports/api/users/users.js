@@ -1,6 +1,6 @@
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
-// example for offline db access
+// for offline db access
 // if (Meteor.isCordova) Ground.Collection(Meteor.users);
 // if (Meteor.isClient) Meteor.subscribe('userData');
 
@@ -9,7 +9,7 @@ var usersSchema = new SimpleSchema({
 		type: Date,
 		label: 'Created Date',
 		denyUpdate: true,
-		autoValue: function () {
+		autoValue() {
 			if (this.isInsert) {
 				return new Date();
 			} else if (this.isUpsert) {
@@ -35,7 +35,7 @@ var usersSchema = new SimpleSchema({
 		blackbox: true
 	},
 	emails: {
-		type: Object,
+		type: [Object],
 		optional: true,
 		blackbox: true
 	},

@@ -6,13 +6,28 @@ import { check } from 'meteor/check';
 import { __modelVarName__ } from './__apiName__.js';
 
 Meteor.methods({
-	// add__modelVarName__: ( new__modelVarName__ ) => {
+	// '__apiName__/create': ( new__modelVarName__ ) => {
 	// 	check(new__modelVarName__, Object);
-	// 	__modelVarName__.insert(new__modelVarName__);
+	// 	return __modelVarName__.insert(new__modelVarName__);
 	// },
-	// remove__modelVarName__: ( _id ) => {
+	// '__apiName__/update': ( _id, $set ) => {
 	// 	check(_id, String);
-	// 	__modelVarName__.remove({_id});
+	// 	check($set, Object);
+	// 	return __modelVarName__.update({_id}, {$set});
+	// },
+	// '__apiName__/delete': ( _id ) => {
+	// 	check(_id, String);
+	// 	return __modelVarName__.remove({_id});
 	// },
 
 });
+
+// // Methods which will be queued on Cordova when offline
+// if (Meteor.isClient) {
+// 	Ground.methodResume([
+// 		'__apiName__/create',
+// 		'__apiName__/update',
+// 		'__apiName__/remove',
+// 		// add methods from above as required
+// 	]);
+// }

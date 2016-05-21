@@ -1,8 +1,10 @@
 import { Meteor } from 'meteor/meteor';
 import { DDPRateLimiter } from 'meteor/ddp-rate-limiter';
 import { _ } from 'meteor/underscore';
-import { BrowserPolicy } from 'meteor/browser-policy';
 import { WebApp } from 'meteor/webapp';
+try {
+	BrowserPolicy = require('meteor/browser-policy');
+} catch (e) {}
 
 // Get a list of all accounts methods by running `Meteor.server.method_handlers` in meteor shell
 const AUTH_METHODS = [
@@ -33,13 +35,13 @@ DDPRateLimiter.addRule({
 }, 2, 5000);
 
 // HSTS
-WebApp.connectHandlers.use(function(req, res, next) {
+WebApp.connectHandlers.use( (req, res, next) => {
 	res.setHeader('Strict-Transport-Security', 'max-age=2592000; includeSubDomains'); // 2592000s / 30 days
 	return next();
 });
 
 
-if (BrowserPolicy) {
+if (typeof BrowserPolicy !== 'undefined' && !Meteor.isDevelopment) {
 	BrowserPolicy.content.allowOriginForAll("*.googleapis.com");
 	BrowserPolicy.content.allowOriginForAll("*.gstatic.com");
 	BrowserPolicy.content.allowOriginForAll("*.bootstrapcdn.com");

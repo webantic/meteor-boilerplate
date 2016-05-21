@@ -4,7 +4,7 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import './templates.js'; // Static reference to a file with dynamic contents
 
 FlowRouter.route('/', {
-  action: function(){
+  action: () => {
     BlazeLayout.render("basicLayout", {header: 'header', main: 'home', footer: 'footer'});
   },
   name: "Home"
