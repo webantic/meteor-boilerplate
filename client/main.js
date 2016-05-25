@@ -9,6 +9,10 @@ import { Meteor } from 'meteor/meteor';
  */
 Mongo.Collection.prototype.methods = Mongo.Collection.prototype.helpers;
 
+/*
+	Security Config
+ */
+import '/imports/config/security.config.js';
 
 /*
 	Register Templates

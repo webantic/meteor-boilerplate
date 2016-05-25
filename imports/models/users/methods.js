@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
 
-Meteor.users.helpers({
+Meteor.users.methods({
 	
 });
