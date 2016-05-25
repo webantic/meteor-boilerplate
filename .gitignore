@@ -4,3 +4,4 @@ settings.json
 .meteor/local
 *.log
 npm-debug.log*
+.idea
