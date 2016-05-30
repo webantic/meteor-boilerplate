@@ -63,3 +63,4 @@ publication-collector
 xolvio:cleaner
 dispatch:mocha-phantomjs
 hwillson:stub-collections
+practicalmeteor:chai

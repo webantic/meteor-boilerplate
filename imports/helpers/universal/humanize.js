@@ -1,4 +1,6 @@
 import underscore from "./underscore.js";
+import extname from "./extname.js";
+import capitalize from "./capitalize.js";
 
 export default function(string) {
 	string = string || '';
